@@ -25,7 +25,6 @@ $cipher = new AES(); // could use AES::MODE_CBC
 $cipher->setKey($pass);
 // the IV defaults to all-NULLs if not explicitly defined
 $cipher->setIV('kE4m4N4n-1nF012m4s1');
-
 session_start();
 $_SESSION['unama'] = $unama;
 $_SESSION['pass']= $pass;
@@ -45,9 +44,13 @@ $pass = $cipher->encrypt($pass);
  $query = "INSERT INTO user(username, password, email, nama) VALUES ('$unama', '$pass', '$email', '$nama')";
 
  if( mysqli_query($link,$query) ){
-   $id_user = mysqli_fetch_assoc($result)['id_user'];
+  $query = "SELECT id_user FROM user WHERE username ='$unama' AND password = '$pass'";
+  $result = mysqli_query($link, $query);
+  $row = mysqli_fetch_assoc($result);  
+  $id_user = $row['id_user'];
+  $_SESSION['id_user']=$id_user;
 
-   $_SESSION['id_user']=$id_user;
+
    return true;
  }else{
    return false;

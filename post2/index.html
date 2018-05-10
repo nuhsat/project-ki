@@ -26,18 +26,18 @@
 	<div class="bg-contact2" style="background-image: url('images/bg-01.jpg');">
 		<div class="container-contact2">
 			<div class="wrap-contact2">
-				<form class="contact2-form validate-form">
+				<form method="post" action="../memo_post.php" class="contact2-form validate-form">
 					<span class="contact2-form-title">
 						Write Your Memo
 					</span>
 
 					<div class="wrap-input2 validate-input" data-validate="Name is required">
-						<input class="input2" type="text" name="judul">
+						<input class="input2" type="text" name="judul" required>
 						<span class="focus-input2" data-placeholder="Memo Tittle"></span>
 					</div>
 
 					<div class="wrap-input2 validate-input" data-validate = "Message is required">
-						<textarea class="input2" name="isi_post"></textarea>
+						<textarea class="input2" name="isi_post" required></textarea>
 						<span class="focus-input2" data-placeholder="Your Memo"></span>
 					</div>
 
@@ -45,7 +45,8 @@
 						<div class="wrap-contact2-form-btn">
 							<div class="contact2-form-bgbtn"></div>
 							<button class="contact2-form-btn">
-								Make memo
+								 Make 
+								
 							</button>
 						</div>
 					</div>

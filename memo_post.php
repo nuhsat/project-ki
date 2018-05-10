@@ -9,9 +9,9 @@ include 'db.php';
 
 session_start();
 
-if( isset($_POST['submit']) ){
-    $tit = $_POST['Title'];
-    $mem = $_POST['Memo'];
+if( isset($_POST['judul']) ){
+    $tit = $_POST['judul'];
+    $mem = $_POST['isi_post'];
     $id= $_SESSION['id_user'];
 
     global $link;

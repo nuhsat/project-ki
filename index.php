@@ -143,7 +143,7 @@
 
                         </header>
 
-						<h1><a href="write.php"> >> Create New Memo! <<</a></h1>
+						<h1><a href="post2"> >> Create New Memo! <<</a></h1>
 
                     </article>
 

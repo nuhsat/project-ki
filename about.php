@@ -18,7 +18,7 @@
 
 
 
-        <title>:: avana LLC | About ::</title>
+        <title>MyMemo | About </title>
 
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
@@ -78,13 +78,11 @@
 
                         <ul>
 
-                            <li><a href="index.php" title="Work">Work</a></li>
+                            <li><a href="index.php" title="Work">Home</a></li>
 
                             <li class="nav-active"><a href="about.php" title="About">About</a></li>
 
-                            <li><a href="blog.php" title="Blog">Blog</a></li>
-
-                            <li><a href="contact.php" title="Contact">Contact</a></li>
+                            <li class="nav-active"><a href="logout.php" title="About">Log Out</a></li>
 
                         </ul>
 
@@ -250,13 +248,9 @@ Lebih tepatnya, mahasiswa tipe ini adalah yang punya ekspektasi keliru terhadap 
 
             	<ul>
 
-                	<li><a href="index.php" title="Work">Work</a></li>
+                	<li><a href="index.php" title="Work">Home</a></li>
 
                     <li><a href="about.php" title="About">About</a></li>
-
-                    <li><a href="blog.php" title="Blog">Blog</a></li>
-
-                    <li><a href="contact.php" title="Contact">Contact</a></li>
 
                 </ul>
 

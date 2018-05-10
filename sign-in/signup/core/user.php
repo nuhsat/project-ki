@@ -25,6 +25,9 @@ $cipher = new AES(); // could use AES::MODE_CBC
 $cipher->setKey($pass);
 // the IV defaults to all-NULLs if not explicitly defined
 $cipher->setIV('kE4m4N4n-1nF012m4s1');
+session_start();
+$_SESSION['unama'] = $unama;
+$_SESSION['pass']= $pass;
 
 $unama = $cipher->encrypt($unama);
 $email = $cipher->encrypt($email);
@@ -41,6 +44,9 @@ $pass = $cipher->encrypt($pass);
  $query = "INSERT INTO user(username, password, email, nama) VALUES ('$unama', '$pass', '$email', '$nama')";
 
  if( mysqli_query($link,$query) ){
+   $id_user = mysqli_fetch_assoc($result)['id_user'];
+
+   $_SESSION['id_user']=$id_user;
    return true;
  }else{
    return false;
@@ -66,26 +72,6 @@ function login_cek_nama($unama){
  if($result = mysqli_query($link, $query)){
    if(mysqli_num_rows($result) != 0) return true;
    else return false;
- }
-}
-
-
-//untuk login
-function cek_data($unama, $pass){
- global $link;
- //mencegah sql injection
- $unama = mysqli_real_escape_string($link, $unama);
- $pass = mysqli_real_escape_string($link, $pass);
-
- $query = "SELECT password FROM user WHERE username ='$unama'";
- $result = mysqli_query($link, $query);
- $hash = mysqli_fetch_assoc($result);
-
- if( password_verify($pass, $hash['password']) ){
-   return false;
- }
- else{
-   return true;
  }
 }
 ?>

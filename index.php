@@ -1,14 +1,26 @@
 <?php 
     session_start();
     include 'db.php';
+    include 'vendor/autoload.php';
+
+    use phpseclib\Crypt\AES;
+    use phpseclib\Crypt\Random;
+    $cipher = new AES(); 
+    $cipher->setIV('kE4m4N4n-1nF012m4s1');
+
     
+
     if(!isset($_SESSION['id_user'])) {
          header('location:sign-in/');
           exit();
-      }else {
+    }
+    else {
         $id_user = $_SESSION['id_user'];
-        // echo $id_user;
-      }
+        $pass = $_SESSION['pass'];  
+    
+        $cipher->setKey($pass);
+    
+    }
 
 ?>
 
@@ -31,7 +43,7 @@
 
         
 
-        <title>:: avana LLC ::</title>
+        <title> MyMemo </title>
 
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
@@ -127,20 +139,21 @@
 
                     	<header>
 
-                        	<h2><span>avana</span> A Brand new Agency.</h2>
+                        	<h2><span>MyMemo</span></h2><h3> Making Your Own Memo</h3>
 
                         </header>
 
-                        <p>This is the story of Avana, a minimal Bootstrap template for creative agency.</p>
-
-						<h1><a href="write.php">Create New Memo!</a></h1>
+						<h1><a href="write.php"> >> Create New Memo! <<</a></h1>
 
                     </article>
 
                 </section>
 
                 
-            <?php   $sql = "SELECT * FROM post WHERE id_user = '$id_user'";
+            <?php   
+
+            
+                    $sql = "SELECT * FROM post WHERE id_user = '$id_user'";
                     $result = $link->query($sql);
                     $i =0;
                     if($result->num_rows > 0) {
@@ -148,7 +161,13 @@
                             $i = $i%5;   
                             $i++;
                             $src = "images/home-images/image-".$i.".jpg";
-
+                            
+                            $judul = $row['judul'];
+                            $judul = $cipher->decrypt($judul);
+                            
+                            $isi_post = $row['isi_post'];
+                            $isi_post = $cipher->decrypt($isi_post);
+                        
                             
 
                     
@@ -161,9 +180,9 @@
 
                         <figcaption>
 
-                        	<h2><span> <?php echo $row['judul']?> </span></h2>
+                        	<h2><span> <?php echo $judul;?> </span></h2>
 
-							<p> <?php echo $row['isi_post']?> </p>
+							<p> <?php echo $isi_post;?> </p>
 
 							<!-- <a href="works-details.php">View more</a> -->
 
@@ -211,10 +230,6 @@
                 	<li><a href="index.php" title="Work">Work</a></li>
 
                     <li><a href="about.php" title="About">About</a></li>
-
-                    <li><a href="blog.php" title="Blog">Blog</a></li>
-
-                    <li><a href="contact.php" title="Contact">Contact</a></li>
 
                 </ul>
 

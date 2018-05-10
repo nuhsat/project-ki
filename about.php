@@ -18,7 +18,7 @@
 
 
 
-        <title>MyMemo | About </title>
+        <title>Anticipation View | About </title>
 
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 

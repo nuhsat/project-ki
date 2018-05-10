@@ -43,7 +43,7 @@
 
         
 
-        <title> MyMemo </title>
+        <title> Anticipation View </title>
 
 		<link rel="shortcut icon" href="images/favicon.ico" type="image/x-icon">
 
@@ -93,7 +93,7 @@
 
                     	<h1>
 
-                        	<a href="index.php" title="avana LLC"><img src="images/logo.png" title="avana LLC" alt="avana LLC"/></a>
+                        	<a href="index.php" title="Anticipation View"><img src="images/logo.png" title="Anticipation View" alt="avana LLC"/></a>
 
                         </h1>
 
@@ -139,7 +139,7 @@
 
                     	<header>
 
-                        	<h2><span>MyMemo</span></h2><h3> Making Your Own Memo</h3>
+                        	<h3><span>Anticipation View</span></h3>
 
                         </header>
 

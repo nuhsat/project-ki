@@ -1,5 +1,6 @@
 <?php 
     session_start();
+    include 'db.php';
     
     if(!isset($_SESSION['id_user'])) {
          header('location:sign-in/');
@@ -132,7 +133,7 @@
 
                         <p>This is the story of Avana, a minimal Bootstrap template for creative agency.</p>
 
-						<a href="write.php">Create New Memo!</a>
+						<h1><a href="write.php">Create New Memo!</a></h1>
 
                     </article>
 
@@ -140,9 +141,15 @@
 
                 
             <?php   $sql = "SELECT * FROM post WHERE id_user = '$id_user'";
-                    $result = $connect->query($sql);
+                    $result = $link->query($sql);
+                    $i =0;
                     if($result->num_rows > 0) {
                         while($row = $result->fetch_assoc()) {
+                            $i = $i%5;   
+                            $i++;
+                            $src = "images/home-images/image-".$i.".jpg";
+
+                            
 
                     
             ?>
@@ -150,7 +157,7 @@
 
                 	<figure class="effect-oscar">
 
-                    	<img src="images/home-images/image-1.jpg" alt="" class="img-responsive"/>
+                    	<img src="<?php echo $src;?>" alt="" class="img-responsive"/>
 
                         <figcaption>
 
@@ -172,354 +179,7 @@
             ?>
                 
 
-                <div class="clearfix"></div>
-
                 
-
-                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-
-                	<ul class="grid-lod effect-2" id="grid">
-
-                    	<li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-2.jpg".$i alt="" class="img-responsive"/>
-
-                            <figcaption>
-
-                            	
-
-                                    <h2>Studio Thonik <span>Exhibition</span></h2>
-
-                                    <p>Project for Thonik, design studio based in Amsterdam</p>
-
-                                    <!-- <a href="works-details.php">View more</a> -->
-
-                                
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-4.jpg" alt="" class="img-responsive"/>
-
-                            <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-2.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Studio Thonik <span>Exhibition</span></h2>
-
-                                    <p>Project for Thonik, design studio based in Amsterdam</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-4.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-2.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Studio Thonik <span>Exhibition</span></h2>
-
-                                    <p>Project for Thonik, design studio based in Amsterdam</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-4.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-2.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Studio Thonik <span>Exhibition</span></h2>
-
-                                    <p>Project for Thonik, design studio based in Amsterdam</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-4.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
-                
-
-                <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
-
-                	<ul class="grid-lod effect-2" id="grid">
-
-                    	<li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-3.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Anatome Milano <span>Galleria</span></h2>
-
-                                <p>Galerie Anatome based in Paris</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-5.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-3.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Anatome Milano <span>Galleria</span></h2>
-
-                                <p>Galerie Anatome based in Paris</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-5.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-3.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                               <h2>Anatome Milano <span>Galleria</span></h2>
-
-                                <p>Galerie Anatome based in Paris</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                             <figure class="effect-oscar">
-
-                                <img src="images/home-images/image-5.jpg" alt="" class="img-responsive"/>
-
-                                 <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                            </figure>
-
-                        </li>
-
-                        <li>
-
-                       	 	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-3.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>Anatome Milano <span>Galleria</span></h2>
-
-                                <p>Galerie Anatome based in Paris</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                        <li>
-
-                        	<figure class="effect-oscar">
-
-                            <img src="images/home-images/image-5.jpg" alt="" class="img-responsive"/>
-
-                             <figcaption>
-
-                                <h2>A Brand <span>new Agency</span></h2>
-
-                                <p>Over 40,000 customers use our themes to power their</p>
-
-                                <!-- <a href="works-details.php">View more</a> -->
-
-                            </figcaption>
-
-                        </figure>
-
-                        </li>
-
-                    </ul>
-
-                </section>
-
                 <div class="clearfix"></div>
 
             </div>

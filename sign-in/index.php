@@ -1,5 +1,3 @@
-
-
 <!DOCTYPE html>
 <html lang="en" >
 
@@ -16,7 +14,7 @@
 
       <link rel="stylesheet" href="css/style.css">
 
-  
+
 </head>
 
 <body>
@@ -28,8 +26,8 @@
       <h1 class="logo__text">Spectre</h1>
     </div>
     <div class="thumbnail__content text-center">
-      <h1 class="heading--primary">Welcome to MI6.</h1>
-      <h2 class="heading--secondary">Are you ready to join the elite?</h2>
+      <h1 class="heading--primary">Welcome to MyMemo.</h1>
+      <h2 class="heading--secondary">Are you ready to write your own Memo?</h2>
     </div>
     <div class="thumbnail__links">
       <ul class="list-inline m-b-0 text-center">
@@ -42,7 +40,11 @@
     <div class="signup__overlay"></div>
   </div>
   <div class="container__child signup__form">
-    <form action="#">
+    <form action="signup\signup.php" method="post">
+      <div class="form-group">
+        <label for="nama">Name</label>
+        <input class="form-control" type="text" name="nama" id="username" placeholder="james bond" required />
+      </div>
       <div class="form-group">
         <label for="username">Username</label>
         <input class="form-control" type="text" name="username" id="username" placeholder="james.bond" required />
@@ -55,25 +57,21 @@
         <label for="password">Password</label>
         <input class="form-control" type="password" name="password" id="password" placeholder="********" required />
       </div>
-      <div class="form-group">
-        <label for="passwordRepeat">Repeat Password</label>
-        <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat" placeholder="********" required />
-      </div>
       <div class="m-t-lg">
         <ul class="list-inline">
           <li>
-            <input class="btn btn--form" type="submit" value="Register" />
+            <input type="submit" name="submit" value="daftar" id="signup-button" class="btn btn--form"  />
           </li>
           <li>
             <a class="signup__link" href="#">I am already a member</a>
           </li>
         </ul>
       </div>
-    </form>  
+    </form>
   </div>
 </div>
-  
-  
+
+
 
 </body>
 

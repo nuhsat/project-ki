@@ -18,7 +18,7 @@ function cek_data($unama, $pass){
   // the IV defaults to all-NULLs if not explicitly defined
   $cipher->setIV('kE4m4N4n-1nF012m4s1');
 
- //session_start();
+ session_start();
  $_SESSION['unama'] = $unama;
  $_SESSION['pass']= $pass;
 
@@ -31,12 +31,16 @@ function cek_data($unama, $pass){
 
   $query = "SELECT id_user,password FROM user WHERE username ='$cunama'";
   $result = mysqli_query($link, $query);
-  $hash = mysqli_fetch_assoc($result)['password'];
+  $row = mysqli_fetch_assoc($result);
+  $hash = $row['password'];
   $e_pass = $cipher->decrypt($hash);
+  
+  $id_user = $row['id_user'];
+  $_SESSION['id_user']=$id_user;
 
   if( $pass == $e_pass) {
-    $id_user = mysqli_fetch_assoc($result)['id_user'];
-    $_SESSION['id_user']=$id_user;
+    // session_start();
+
     return true;
   }
   else{

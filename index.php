@@ -1,3 +1,17 @@
+<?php 
+    session_start();
+    
+    if(!isset($_SESSION['id_user'])) {
+         header('location:sign-in/');
+          exit();
+      }else {
+        $id_user = $_SESSION['id_user'];
+        // echo $id_user;
+      }
+
+?>
+
+
 <!DOCTYPE HTML>
 
  <html>
@@ -78,13 +92,11 @@
 
                         <ul>
 
-                            <li class="nav-active"><a href="index.php" title="Work">Work</a></li>
+                            <li class="nav-active"><a href="index.php" title="Work">Home</a></li>
 
                             <li><a href="about.php" title="About">About</a></li>
 
-                            <li><a href="blog.php" title="Blog">Blog</a></li>
-
-                            <li><a href="contact.php" title="Contact">Contact</a></li>
+                            <li><a href="logout.php" title="Contact">Log Out</a></li>
 
                         </ul>
 
@@ -127,7 +139,13 @@
                 </section>
 
                 
+            <?php   $sql = "SELECT * FROM post WHERE id_user = '$id_user'";
+                    $result = $connect->query($sql);
+                    if($result->num_rows > 0) {
+                        while($row = $result->fetch_assoc()) {
 
+                    
+            ?>
                 <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
 
                 	<figure class="effect-oscar">
@@ -136,18 +154,22 @@
 
                         <figcaption>
 
-                        	<h2>Eliana Dedda<span> Identity</span></h2>
+                        	<h2><span> <?php echo $row['judul']?> </span></h2>
 
-							<p>Personal Brand Identity.</p>
+							<p> <?php echo $row['isi_post']?> </p>
 
-							<a href="works-details.php">View more</a>
+							<!-- <a href="works-details.php">View more</a> -->
 
                         </figcaption>
 
                     </figure>
 
                 </section>
-
+                
+            <?php
+                        }
+                    }
+            ?>
                 
 
                 <div class="clearfix"></div>
@@ -162,7 +184,7 @@
 
                         	<figure class="effect-oscar">
 
-                            <img src="images/home-images/image-2.jpg" alt="" class="img-responsive"/>
+                            <img src="images/home-images/image-2.jpg".$i alt="" class="img-responsive"/>
 
                             <figcaption>
 
@@ -172,7 +194,7 @@
 
                                     <p>Project for Thonik, design studio based in Amsterdam</p>
 
-                                    <a href="works-details.php">View more</a>
+                                    <!-- <a href="works-details.php">View more</a> -->
 
                                 
 
@@ -196,7 +218,7 @@
 
                                 <p>Over 40,000 customers use our themes to power their</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -216,7 +238,7 @@
 
                                     <p>Project for Thonik, design studio based in Amsterdam</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -236,7 +258,7 @@
 
                                 <p>Over 40,000 customers use our themes to power their</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -256,7 +278,7 @@
 
                                     <p>Project for Thonik, design studio based in Amsterdam</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -276,7 +298,7 @@
 
                                 <p>Over 40,000 customers use our themes to power their</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -296,7 +318,7 @@
 
                                     <p>Project for Thonik, design studio based in Amsterdam</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -316,7 +338,7 @@
 
                                 <p>Over 40,000 customers use our themes to power their</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -346,7 +368,7 @@
 
                                 <p>Galerie Anatome based in Paris</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -366,7 +388,7 @@
 
                                 <p>Over 40,000 customers use our themes to power their</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -386,7 +408,7 @@
 
                                 <p>Galerie Anatome based in Paris</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -406,7 +428,7 @@
 
                                 <p>Over 40,000 customers use our themes to power their</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -426,7 +448,7 @@
 
                                 <p>Galerie Anatome based in Paris</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -446,7 +468,7 @@
 
                                 <p>Over 40,000 customers use our themes to power their</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -466,7 +488,7 @@
 
                                 <p>Galerie Anatome based in Paris</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 
@@ -486,7 +508,7 @@
 
                                 <p>Over 40,000 customers use our themes to power their</p>
 
-                                <a href="works-details.php">View more</a>
+                                <!-- <a href="works-details.php">View more</a> -->
 
                             </figcaption>
 

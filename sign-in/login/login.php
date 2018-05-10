@@ -8,18 +8,13 @@ if( isset($_POST['submit']) ){
 
     if(!empty(trim($unama)) && !empty(trim($pass)))
     {
-      if(login_cek_nama($unama))
-        {
           if(cek_data($unama, $pass)){
-            header('Location: ../index.php');
+            header('Location: ../../index.php');
           }
           else{
             echo 'Data ada yang salah';
           }
-        }
-        else{
-            echo 'Namanya belum terdaftar di database';
-        }
+
       }
       else{
             echo 'Tidak Boleh Kosong';

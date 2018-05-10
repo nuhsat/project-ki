@@ -1,5 +1,11 @@
 <?php
 
+require '../../vendor/autoload.php';
+
+use phpseclib\Crypt\AES;
+use phpseclib\Crypt\Random;
+
+
 function register_user($unama, $pass){
  global $link;
 
@@ -9,7 +15,29 @@ function register_user($unama, $pass){
  $unama = mysqli_real_escape_string($link, $unama);
  $pass = mysqli_real_escape_string($link, $pass);
 
- $pass = password_hash($pass, PASSWORD_DEFAULT);
+
+//AES
+
+$cipher = new AES(); // could use AES::MODE_CBC
+// keys are null-padded to the closest valid size
+// longer than the longest key and it's truncated
+//$cipher->setKeyLength(128);
+$cipher->setKey($pass);
+// the IV defaults to all-NULLs if not explicitly defined
+$cipher->setIV('kE4m4N4n-1nF012m4s1');
+
+$unama = $cipher->encrypt($unama);
+$email = $cipher->encrypt($email);
+$nama = $cipher->encrypt($nama);
+$pass = $cipher->encrypt($pass);
+
+// $plaintext =
+// echo $cipher->encrypt($plaintext)
+//echo $cipher->decrypt($cipher->encrypt($plaintext));
+
+//hash
+// $pass = password_hash($pass, PASSWORD_DEFAULT);
+
  $query = "INSERT INTO user(username, password, email, nama) VALUES ('$unama', '$pass', '$email', '$nama')";
 
  if( mysqli_query($link,$query) ){
@@ -19,7 +47,7 @@ function register_user($unama, $pass){
  }
 }
 
-//menguji nama kemba
+//menguji nama kembar
 function register_cek_nama($unama){
  global $link;
  $unama = mysqli_real_escape_string($link, $unama);

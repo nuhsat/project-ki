@@ -14,7 +14,7 @@ if( isset($_POST['submit']) ){
   if(register_cek_nama($unama)){
     //memasukan ke database
         if(register_user($unama, $pass)){
-          header('Location: ../index.html');
+          header('Location: ../../index.php');
         }else{
           echo 'gagal daftar';
         }

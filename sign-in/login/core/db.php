@@ -3,7 +3,7 @@
 $host ='localhost';
 $user ='root';
 $password ='';
-$db    ='user';
+$db    ='projekki';
 
 $link=mysqli_connect($host, $user, $password, $db) or die(mysqli_error());
 

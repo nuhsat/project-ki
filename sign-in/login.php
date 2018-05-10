@@ -55,7 +55,7 @@
             <input class="btn btn--form" type="submit" name="submit" value="masuk" id="login" />
           </li>
           <li>
-            <a class="signup__link" href="#">I am already a member</a>
+            <a class="signup__link" href="index.php">I don't have account</a>
           </li>
         </ul>
       </div>

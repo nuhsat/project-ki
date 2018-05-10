@@ -10,7 +10,7 @@ function register_user($unama, $pass){
   $pass = mysqli_real_escape_string($link, $pass);
 
   $pass = password_hash($pass, PASSWORD_DEFAULT);
-  $query = "INSERT INTO user_table(username, password, email, name) VALUES ('$unama', '$pass', '$email', '$nama')";
+  $query = "INSERT INTO user(username, password, email, name) VALUES ('$unama', '$pass', '$email', '$nama')";
 
   if( mysqli_query($link,$query) ){
     return true;
@@ -23,7 +23,7 @@ function register_user($unama, $pass){
 function register_cek_nama($unama){
   global $link;
   $unama = mysqli_real_escape_string($link, $unama);
-  $query = "SELECT * FROM user_table WHERE username='$unama'";
+  $query = "SELECT * FROM user WHERE username='$unama'";
   if($result = mysqli_query($link, $query)){
     if(mysqli_num_rows($result) == 0) return true;
     else return false;
@@ -34,7 +34,7 @@ function register_cek_nama($unama){
 function login_cek_nama($unama){
   global $link;
   $unama = mysqli_real_escape_string($link, $unama);
-  $query = "SELECT * FROM user_table WHERE username='$unama'";
+  $query = "SELECT * FROM user WHERE username='$unama'";
   if($result = mysqli_query($link, $query)){
     if(mysqli_num_rows($result) != 0) return true;
     else return false;
@@ -49,7 +49,7 @@ function cek_data($unama, $pass){
   $unama = mysqli_real_escape_string($link, $unama);
   $pass = mysqli_real_escape_string($link, $pass);
 
-  $query = "SELECT password FROM user_table WHERE username ='$unama'";
+  $query = "SELECT password FROM user WHERE username ='$unama'";
   $result = mysqli_query($link, $query);
   $hash = mysqli_fetch_assoc($result)['password'];
 

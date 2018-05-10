@@ -16,7 +16,7 @@
 
         <meta name="author" content="">
 
-        
+
 
         <title>:: avana LLC | About ::</title>
 
@@ -46,7 +46,7 @@
 
         <!-- font-awesome -->
 
-        
+
 
 	</head>
 
@@ -54,7 +54,7 @@
 
     <body>
 
-    
+
 
     	<!-- header -->
 
@@ -102,11 +102,11 @@
 
         <main role="main-inner-wrapper" class="container">
 
-        	
+
 
             <div class="row">
 
-            
+
 
             	<section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
 
@@ -118,31 +118,41 @@
 
                         </header>
 
-                        <p>Over 40,000 customers use our themes to power their websites and we love them.</p>
+                        <p>Live is hard. <strong> Engineering </strong> is harder</p>
 
                     </article>
 
                 </section>
 
-                
+
 
                 <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
 
                 	<article class="about-content">
+                    <p>
+                      Mahasiswa Tipe #Nuh: <strong> Ngiler dengan prospek kerjanya </strong></br>
+Mahasiswa tipe ini membayangkan kuliah di Ilkom/IT itu keren, bergengsi, mengikuti jaman.
+                    </p>
+                    
+                    	<p>Mahasiswa Tipe #Harits: <strong>“Computer science/IT adalah passion gue”</strong> </br>
+Mereka masuk Ilkom karena emang suka dunianya dan punya ambisi besar jadi expert dan membuat terobosan di bidang ini.
+                      </p>
 
-                    	<p>Claritas est etiam processus dynamicus, qui sequitur mutationem consuetudium lectorum. Mirum est notare quam littera gothica, quam nunc putamus parum claram, anteposuerit litterarum formas humanitatis per seacula quarta decima et quinta decima. Eodem modo typi, qui nunc, fiant sollemnes in futurum.</p>
+                        <p>
+                          Mahasiswa Tipe #Velia: <strong> Kenapa gue bisa ada di sini?? </strong></br>
+Lebih tepatnya, mahasiswa tipe ini adalah yang punya ekspektasi keliru terhadap jurusan Ilkom/TI.
+                        </p>
 
-                        <p>Claritas est etiam processus dynamicus, qui sequitur mutationem consueum formas humanitatis per seacula quarta deciEodem modo tythepi, qui nunc, fiant sollemnes in futurum.</p>
 
                     </article>
 
                 </section>
 
-                
+
 
                 <div class="clearfix"></div>
 
-                
+
 
                 <!-- thumbnails -->
 
@@ -156,7 +166,7 @@
 
                             	<figcaption>
 
-                                	<h3>John Doe</h3>
+                                	<h3>Nuh Satria Putra</h3>
 
                                     <h5>The designer</h5>
 
@@ -174,7 +184,7 @@
 
                             	<figcaption>
 
-                                	<h3>kristy Roan</h3>
+                                	<h3>Velia Deby Rahmawati</h3>
 
                                     <h5>The Manager</h5>
 
@@ -192,7 +202,7 @@
 
                             	<figcaption>
 
-                                	<h3>Jason takas</h3>
+                                	<h3>Muhammad Harits Arrazi</h3>
 
                                     <h5>The Founder</h5>
 
@@ -202,17 +212,17 @@
 
                         </section>
 
-                        
 
-                     
+
+
 
                     </div>
 
                 <!-- thumbnails -->
 
-                
 
-                
+
+
 
             </div>
 
@@ -272,7 +282,7 @@
 
         <!-- footer -->
 
-    
+
 
         <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
 

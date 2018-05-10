@@ -25,6 +25,7 @@ $cipher = new AES(); // could use AES::MODE_CBC
 $cipher->setKey($pass);
 // the IV defaults to all-NULLs if not explicitly defined
 $cipher->setIV('kE4m4N4n-1nF012m4s1');
+
 session_start();
 $_SESSION['unama'] = $unama;
 $_SESSION['pass']= $pass;

@@ -9,8 +9,11 @@ use phpseclib\Crypt\Random;
 function register_user($unama, $pass){
  global $link;
 
+  $pass = hash('sha256', $pass);
+
  $email = $_POST['email'];
  $nama = $_POST['nama'];
+
  //mencegah sql injection
  $unama = mysqli_real_escape_string($link, $unama);
  $pass = mysqli_real_escape_string($link, $pass);
@@ -26,6 +29,8 @@ $cipher->setKey($pass);
 // the IV defaults to all-NULLs if not explicitly defined
 $cipher->setIV('kE4m4N4n-1nF012m4s1');
 session_start();
+$_SESSION['mode'] = 'dekripsi';
+$_SESSION['nama'] = $nama;
 $_SESSION['unama'] = $unama;
 $_SESSION['pass']= $pass;
 

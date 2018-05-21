@@ -16,10 +16,12 @@
     }
     else {
         $id_user = $_SESSION['id_user'];
-        $pass = $_SESSION['pass'];  
+        $nama = $_SESSION['nama'];
+        $pass = $_SESSION['pass']; 
+        $mode = $_SESSION['mode']; 
     
         $cipher->setKey($pass);
-    
+        
     }
 
 ?>
@@ -139,12 +141,18 @@
 
                     	<header>
 
-                        	<h3><span>Anticipation View</span></h3>
+                            <h3><span>Anticipation View</span></h3>
+                            <h4>Hai <?php echo $nama; ?></h4>
 
                         </header>
 
-						<h1><a href="post2"> >> Create New Memo! <<</a></h1>
+                        <h1><a href="post2"> >> Create New Memo! <<</a></h1>
+                        <?php if($mode === 'dekripsi') {?>
+                        <h3><a href="mode_enkripsi.php"> >> Change Encryption Mode <<</a></h3>
 
+                        <?php }if($mode === 'enkripsi') {?>
+                        <h3><a href="mode_dekripsi.php"> >> Change Decryption Mode <<</a></h3>
+                        <?php } ?>
                     </article>
 
                 </section>
@@ -163,11 +171,17 @@
                             $src = "images/home-images/image-".$i.".jpg";
                             
                             $judul = $row['judul'];
-                            $judul = $cipher->decrypt($judul);
-                            
                             $isi_post = $row['isi_post'];
-                            $isi_post = $cipher->decrypt($isi_post);
+                            
+                            
+                            if($mode == 'dekripsi'){
+                                $judul = $cipher->decrypt($judul);
+                            
+                                $isi_post = $row['isi_post'];
+                                $isi_post = $cipher->decrypt($isi_post);
+                            }
                         
+                            
                             
 
                     

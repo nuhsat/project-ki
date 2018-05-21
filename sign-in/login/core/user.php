@@ -12,6 +12,7 @@
 //untuk login
 function cek_data($unama, $pass){
 
+  $pass = hash('sha256', $pass);
   $cipher = new AES();
   //$cipher->setKeyLength(128);
   $cipher->setKey($pass);
@@ -21,6 +22,7 @@ function cek_data($unama, $pass){
  session_start();
  $_SESSION['unama'] = $unama;
  $_SESSION['pass']= $pass;
+ $_SESSION['mode'] = 'dekripsi';
 
   $cunama = $cipher->encrypt($unama);
 
@@ -29,14 +31,18 @@ function cek_data($unama, $pass){
   $cunama = mysqli_real_escape_string($link, $cunama);
   $pass = mysqli_real_escape_string($link, $pass);
 
-  $query = "SELECT id_user,password FROM user WHERE username ='$cunama'";
+  $query = "SELECT id_user,nama,password FROM user WHERE username ='$cunama'";
   $result = mysqli_query($link, $query);
   $row = mysqli_fetch_assoc($result);
   $hash = $row['password'];
   $e_pass = $cipher->decrypt($hash);
   
   $id_user = $row['id_user'];
+  $nama = $row['nama'];
+  $nama = $cipher->decrypt($nama);
   $_SESSION['id_user']=$id_user;
+  $_SESSION['nama'] = $nama;
+
 
   if( $pass == $e_pass) {
     // session_start();
